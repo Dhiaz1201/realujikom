@@ -10,6 +10,18 @@ body {
     position: relative;
     font-weight: 400px;
 }
+/* .baris{display:-ms-flexbox;
+    display:flex;-ms-flex-wrap:wrap;
+    flex-wrap:wrap;margin-right:-15px;
+    margin-left:-15px;
+    top: 18%;
+    right: 60%;
+}
+colum-sm-2{
+    -ms-flex:0 0 16.666667%;
+    flex:0 0 16.666667%;
+    max-width:16.666667%;
+} */
 
 ul li {
     list-style: none;
@@ -79,10 +91,46 @@ label{
 	text-decoration: none;
 	font-size: 10pt;
 }
+
 .image-topright{
   position: absolute;
-  top: 22%;
-  right: 1%;
+  top: -127%;
+  right: -300%;
+  font-size: 18px;
+}
+
+.image-topright-2{
+  position: absolute;
+  top: -127%;
+  right: -3000%;
+  font-size: 18px;
+}
+
+.image-topright-3{
+  position: absolute;
+  top: -127%;
+  right: -3570%;
+  font-size: 18px;
+}
+
+.image-topright-4{
+  position: absolute;
+  top: -95%;
+  right: -2280%;
+  font-size: 18px;
+}
+
+.image-topright-5{
+  position: absolute;
+  top: -95%;
+  right: -2850%;
+  font-size: 18px;
+}
+
+.image-topright-6{
+  position: absolute;
+  top: -95%;
+  right: -3420%;
   font-size: 18px;
 }
 
@@ -2388,6 +2436,7 @@ textarea {
     border: 0 none;
     border-radius: 0;
     margin-top: 16px;
+    width: 50%;
 }
 
 .blank-arrow {

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<STYLE> 
+body{margin-top:50px}
+label input[type="file"]{
+display:none;
+}
+body{background:black}
+.row{margin-top:10px}
+</style>
+
+</head>
+<body>
+<label class="btn btn-danger" for="uploadedhere">Upload
+<input type="file" id="uploadedhere" onchange="myfun()">
+</label>
+
+<div class="row">
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage1" height="150" width="150">
+</div>
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage2" height="150" width="150">
+</div>
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage3" height="150" width="150">
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage4" height="150" width="150">
+</div>
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage5" height="150" width="150">
+</div>
+<div class="col-sm-2">
+<img src="images/upload.jpg" id="changeimage6" height="150" width="150">
+</div>
+</div>
+
+
+<script> 
+
+var i = 0;
+function myfun(){
+i++;
+
+ var x = 	document.getElementById("uploadedhere").files[0];
+ var currentimage1  = document.getElementById("changeimage1");
+  var currentimage2  = document.getElementById("changeimage2");
+  var currentimage3  = document.getElementById("changeimage3");
+  var currentimage4  = document.getElementById("changeimage4");
+  var currentimage5  = document.getElementById("changeimage5");
+  var currentimage6  = document.getElementById("changeimage6");
+
+ 
+var reader =   new FileReader();
+ 
+ reader.onload = function(){
+ 
+ if(i == "1"){
+currentimage1.src = reader.result;
+}
+
+if(i == "2"){
+currentimage2.src = reader.result;
+}
+if(i == "3"){
+currentimage3.src = reader.result;
+}
+if(i == "4"){
+currentimage4.src = reader.result;
+}
+if(i == "5"){
+currentimage5.src = reader.result;
+}
+if(i == "6"){
+currentimage6.src = reader.result;
+}
+
+
+ }
+ 
+
+
+
+reader.readAsDataURL(x);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,8 @@
+<style>
+label input[type="file"]{
+display:none;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,20 +158,50 @@
       <option>Single</option>
     </select>
   </div>
+		<label>Foto</label>
 	<div class="from-group">
-	<label>Foto</label>
- <input type="file" class="form-control" name="foto">
+	<label class="btn btn-primary" for="uploadedhere">Upload
+<input type="file" id="uploadedhere" onchange="myfun()">
+</label>
+<button type="submit" class="btn btn-primary">Cetak</button>
 </div>
-  <button type="submit" class="btn btn-primary">Cetak</button>
   <br>
   <br>
     </from>
 </div>
-<div="container">
+{{-- <div="container"> --}}
+<div class="col-sm-2">
 <div class="image-topright">
-<img src="frontend/assets/images/wedding.jfif" height="50%" width="70%">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage1" height="150" width="150">
 </div>
+<div>
 </div>
+<div class="col-sm-2">
+<div class="image-topright-2">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage2" height="150" width="150">
+</div>
+<div>
+<div class="col-sm-2">
+<div class="image-topright-3">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage3" height="150" width="150">
+</div>
+<div>
+<div class="col-sm-2">
+<div class="image-topright-4">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage4" height="150" width="150">
+</div>
+<div>
+<div class="col-sm-2">
+<div class="image-topright-5">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage5" height="150" width="150">
+</div>
+<div>
+<div class="col-sm-2">
+<div class="image-topright-6">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage6" height="150" width="150">
+</div>
+<div>
+{{-- </div> --}}
   </body>
 </html>
 </div="container">
@@ -335,5 +370,68 @@
 	<script src="frontend/assets/js/jquery.scrollUp.min.js"></script>
     <script src="frontend/assets/js/jquery.prettyPhoto.js"></script>
     <script src="frontend/assets/js/main.js"></script>
+		<script> 
+
+var i = 0;
+function myfun(){
+i++;
+
+ var x = 	document.getElementById("uploadedhere").files[0];
+ var currentimage1  = document.getElementById("changeimage1");
+  var currentimage2  = document.getElementById("changeimage2");
+  var currentimage3  = document.getElementById("changeimage3");
+  var currentimage4  = document.getElementById("changeimage4");
+  var currentimage5  = document.getElementById("changeimage5");
+  var currentimage6  = document.getElementById("changeimage6");
+
+ 
+var reader =   new FileReader();
+ 
+ reader.onload = function(){
+ 
+ if(i == "1"){
+currentimage1.src = reader.result;
+}
+
+if(i == "2"){
+currentimage2.src = reader.result;
+}
+if(i == "3"){
+currentimage3.src = reader.result;
+}
+if(i == "4"){
+currentimage4.src = reader.result;
+}
+if(i == "5"){
+currentimage5.src = reader.result;
+}
+if(i == "6"){
+currentimage6.src = reader.result;
+}
+
+
+ }
+ 
+
+
+
+reader.readAsDataURL(x);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
 </body>
 </html>
