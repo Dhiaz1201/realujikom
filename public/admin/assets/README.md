@@ -1,75 +1,61 @@
-AdminBSB - Material Design
-=======================
-[![npm version](https://img.shields.io/npm/v/adminbsb-materialdesign.svg)](https://www.npmjs.com/package/adminbsb-materialdesign)
-![Bower version](https://img.shields.io/bower/v/adminbsb-materialdesign.svg)
+# Kiaalap admin dashboard
+Free admin dashboard template
 
-**AdminBSB - Material Design is a fully responsive and free admin template.** It was developed with [Bootstrap 3.x Framework](http://getbootstrap.com) and [Google Material Design](https://material.google.com) of powers.
+# Preview
 
-It's really easy to customize and usage. You can use for from 320px to large resolution pixels of new generation screens and mobile devices. (**Fully Responsive Material Design**)
+![Kiaalap admin dashboard template preview](https://colorlib.com/wp/wp-content/uploads/sites/2/kiaalap-free-bootstrap-admin-dashboard-template.jpg)
 
-Looking for Premium Templates?
-----------------
-**If you need more features please visit portfolio of mine which page link is [https://themeforest.net/user/gurayyarar/portfolio](http://bit.ly/2oPFpmQ)**
+# Overview
+Kiaalap is a full-featured, multipurpose, premium bootstrap admin template built with Bootstrap 4 Framework, HTML5, CSS and JQuery.
 
-Demo
-----------------
-You can check the website preview with **[this link](https://gurayyarar.github.io/AdminBSBMaterialDesign/)**  
+It is a fully responsive bootstrap admin template/bootstrap admin dashboard template that comes with a huge collection of reusable UI components & plugins.
 
-![AdminBSB - Free Admin Template With Material Design](https://raw.githubusercontent.com/gurayyarar/AdminBSBMaterialDesign/master/images/screenshot.png)
+We believe we have covered everything you need to set up an All kind of website.If there is something that you would like to know then we are happy to help you out.
 
-Installation
-----------------
-You can choose one from multiple ways for installation.
+# Template Features:
 
-**GitHub**
-- Fork the repository ([here is the guide](https://help.github.com/articles/fork-a-repo/)).
-- Clone to your machine
-```
-git clone https://github.com/gurayyarar/AdminBSBMaterialDesign.git
-```
+- 50+ PAGES
+- VALID HTML5 & CSS3
+- MATERIAL DESIGN
+- RESPONSIVE LAYOUT
+- 3 HOME VERSIONS
+- NEAT, CLEAN AND SIMPLE DESIGN
+- CREATIVE AND MODERN DESIGN
+- BUILT BASED ON BOOTSTRAP 3+
+- FULLY RESPONSIVE
+- CROSS BROWSER OPTIMIZATION
+- WELL COMMENTED HTML & CSS FILES
+- GOOGLE FONTS
+- GOOGLE MAP
+- C3 AND D3 CHARTS
+- PLOT CHART
+- PEITY CHARTS
+- SPARKLINES
+- CHOSEN
+- CODEMIRROR
+- COLORPICKER
+- IMAGES CROPPER
+- DATA MAP
+- DATEPICKER
+- X-EDITABLE
+- DUAL LISTBOX
+- GOOGLE MAPS
+- ICHECK
+- RANGESLIDER
+- JVECTORMAP
+- KNOB
+- MAPAEL
+- PASSWORD METER
+- PDF VIEWER
+- TOUCHSPIN
+- JSTREE
+- LOBIBOX
+- SUMMERNOTE
 
-**npm**
-```
-npm install adminbsb-materialdesign
-```
+# Other resources:
 
-**bower**
-```
-bower install adminbsb-materialdesign
-```
-
-Documentation
-----------
-Visit the **[documentation](https://gurayyarar.github.io/AdminBSBMaterialDesign/documentation/)**
-
-Browser Support
-----------
-- IE 10 +
-- Microsoft Edge (Latest)
-- Mozilla Firefox (Latest)
-- Google Chrome (Latest)
-- Opera (Latest)
-- Safari (Latest)
-
-Change Logs
-----------
-You can display all release notes with **[this link](https://gurayyarar.github.io/AdminBSBMaterialDesign/pages/changelogs.html)**
-
-
-FAQ
-===
-**Can I use this template for personal or commercial websites/web projects?**  
-Sure, you can use both of personal and commercial websites/web projects.
-
-**Is the attribution link required?**  
-No, not required. (Though very much appreciated)
-
-License
-----------
-**AdminBSB - Material Design** is an open source project that is licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
-Donations
-----------
-Donations are **greatly appreciated!**
-
-**[BUY ME A COFFEE](http://bit.ly/2yEjtx5)**
+- [Bootstrap Dashboards](https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/)
+- [Angular Dashboards](https://colorlib.com/wp/angularjs-admin-templates/)
+- [Free Admin Dashboards](https://colorlib.com/wp/free-html5-admin-dashboard-templates/)
+- [Website Templates](https://colorlib.com/wp/templates/)
+- [Free WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/)

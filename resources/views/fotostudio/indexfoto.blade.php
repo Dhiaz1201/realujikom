@@ -2,6 +2,30 @@
 label input[type="file"]{
 display:none;
 }
+.button {
+  background-color: #FE980F; /* Green */
+  border: none;
+  color: white;
+  padding:5px 16%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {
+  background-color: #FE980F; /* Green */
+  border: none;
+  color: white;
+  padding:5px 16.3%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,6 +142,10 @@ display:none;
   <div class="container">
     <h1>Foto Studio</h1>
     <form>
+		  <div class="form-group">
+    <label>Kode Pelanggan</label>
+    <input type="text" class="form-control"name="kode" placeholder="your kode...">
+  </div>
      <div class="form-group">
     <label>Nama</label>
     <input type="text" class="form-control"name="nama" placeholder="your name...">
@@ -131,16 +159,6 @@ display:none;
     <input type="text" class="form-control"name="number"  placeholder="number...">
   </div>
   <div class="form-group">
-    <label>Cetak Ukuran</label>
-    <select class="form-control" name="cetak">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
     <label>Tanggal Cetak</label>
     <input type="date" class="form-control" name="tgl_cetak">
   </div>
@@ -149,21 +167,27 @@ display:none;
     <input type="date" class="form-control" name="tgl_ambil">
   </div>
    <div class="form-group">
-    <label>Jenis</label>
+    <label>Paket</label>
     <select class="form-control" name="jenis">
-      <option>Fashion</option>
+      <option>Prewedding</option>
       <option>Wedding</option>
-      <option>Still Life</option>
-      <option>Family</option>
-      <option>Single</option>
+      <option>Personal</option>
+      <option>Duo</option>
+      <option>Group</option>
+			<option>Pas Photo</option>
+			<option>Photo Colase</option>
     </select>
   </div>
-		<label>Foto</label>
+	<div class="form-group">
+        <label>Extra</label>
+        <textarea id="editor1" name="konten" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
+    </div>
+		<label class="label-topright">Foto</label>
 	<div class="from-group">
-	<label class="btn btn-primary" for="uploadedhere">Upload
+	<label class="button upload-topright" for="uploadedhere">Upload
 <input type="file" id="uploadedhere" onchange="myfun()">
 </label>
-<button type="submit" class="btn btn-primary">Cetak</button>
+<button type="submit" class="button2 cetak-topright">Cetak</button>
 </div>
   <br>
   <br>

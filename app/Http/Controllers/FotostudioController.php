@@ -14,7 +14,7 @@ class FotostudioController extends Controller
      */
     public function index()
     {
-       $fotostudio = Fotostudio::orderBy('created_at', 'desc')->get();
+       $fotostudio = fotostudio::orderBy('created_at', 'desc')->get();
         return view('backend.fotostudio.index', compact('fotostudio'));
     }
 

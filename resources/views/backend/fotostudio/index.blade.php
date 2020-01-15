@@ -12,9 +12,10 @@
                         <table class="table">
                             <tr>
                                 <th>No</th>
+                                <th>Kode pelanggan</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>   
-                                <th>Number</th>
+                                <th>Nomber Pelanggan</th>
                                 <th>Cetak Ukuran</th>
                                 <th>Tanggal Cetak</th>
                                 <th>Tanggal Ambil</th>
@@ -26,6 +27,7 @@
                 @foreach($fotostudio as $data)
                 <tr>
                     <td>{{ $no++ }}</td>
+                    <td>{{$data->kode_pelanggan}}</td>
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->alamat }}</td>
                     <td>{{$data->number}}</td>
