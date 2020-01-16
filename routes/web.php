@@ -40,3 +40,4 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
  Route::resource('kategori', 'KategoriController');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/struk', 'StrukController@index');

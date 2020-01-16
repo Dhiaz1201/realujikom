@@ -15,15 +15,15 @@ class CreateFotostudiosTable extends Migration
     {
         Schema::create('fotostudios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_pelanggan');
+            $table->string('kode');
             $table->string('nama');
             $table->string('alamat');
-            $table->integer('number');
-            $table->string('cetak_ukuran');
-            $table->date('tanggal_cetak');
-            $table->date('tanggal_ambil');
-            $table->string('jenis');
+            $table->bigInteger('nomber');
+            $table->date('tgl_cetak');
+            $table->date('tgl_ambil');
+            $table->string('paket');
             $table->string('foto');
+            $table->string('ekstra');
             $table->timestamps();
         });
     }

@@ -141,35 +141,38 @@ display:none;
   <body>
   <div class="container">
     <h1>Foto Studio</h1>
-    <form>
+    <form  action="{{ route('fotostudio.store') }}" method="post" enctype="multipart/form-data">
+		 {{ csrf_field() }}
+
 		  <div class="form-group">
     <label>Kode Pelanggan</label>
-    <input type="text" class="form-control"name="kode" placeholder="your kode...">
+    <input type="text" class="form-control"name="kode" placeholder="kode..." required>
   </div>
      <div class="form-group">
     <label>Nama</label>
-    <input type="text" class="form-control"name="nama" placeholder="your name...">
+    <input type="text" class="form-control"name="nama" placeholder="nama..." required>
   </div>
   <div class="form-group">
     <label>Alamat</label>
-    <input type="text" class="form-control"name="alamat"  placeholder="alamat...">
+    <input type="text" class="form-control"name="alamat"  placeholder="alamat..." required>
   </div>
 	 <div class="form-group">
-    <label>Number</label>
-    <input type="text" class="form-control"name="number"  placeholder="number...">
+    <label>Nomber Pelanggan</label>
+    <input type="text" class="form-control"name="nomber"  placeholder="number..." required>
   </div>
   <div class="form-group">
     <label>Tanggal Cetak</label>
-    <input type="date" class="form-control" name="tgl_cetak">
+    <input type="date" class="form-control" name="tgl_cetak" required>
   </div>
   <div class="form-group">
     <label>Tanggal Ambil</label>
-    <input type="date" class="form-control" name="tgl_ambil">
+    <input type="date" class="form-control" name="tgl_ambil" required>
   </div>
    <div class="form-group">
     <label>Paket</label>
-    <select class="form-control" name="jenis">
-      <option>Prewedding</option>
+    <select class="form-control" name="paket" required>
+      <option value="">-- Pilih paket --</option>
+			<option>Prewedding</option>
       <option>Wedding</option>
       <option>Personal</option>
       <option>Duo</option>
@@ -179,13 +182,13 @@ display:none;
     </select>
   </div>
 	<div class="form-group">
-        <label>Extra</label>
-        <textarea id="editor1" name="konten" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
+        <label>Ekstra</label>
+        <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
     </div>
 		<label class="label-topright">Foto</label>
 	<div class="from-group">
 	<label class="button upload-topright" for="uploadedhere">Upload
-<input type="file" id="uploadedhere" onchange="myfun()">
+<input type="file" id="uploadedhere" onchange="myfun()" name="foto" required>
 </label>
 <button type="submit" class="button2 cetak-topright">Cetak</button>
 </div>
@@ -196,33 +199,33 @@ display:none;
 {{-- <div="container"> --}}
 <div class="col-sm-2">
 <div class="image-topright">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage1" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage1" name="foto" height="150" width="150">
 </div>
 <div>
 </div>
 <div class="col-sm-2">
 <div class="image-topright-2">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage2" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage2" name="foto2" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-3">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage3" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage3" name="foto3" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-4">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage4" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage4" name="foto4" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-5">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage5" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage5" name="foto5" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-6">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage6" height="150" width="150">
+<img src="multipleimage/assets/images/upload.jpg" id="changeimage6" name="foto6" height="150" width="150">
 </div>
 <div>
 {{-- </div> --}}

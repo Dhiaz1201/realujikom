@@ -16,10 +16,10 @@
                                 <th>Nama</th>
                                 <th>Alamat</th>   
                                 <th>Nomber Pelanggan</th>
-                                <th>Cetak Ukuran</th>
                                 <th>Tanggal Cetak</th>
                                 <th>Tanggal Ambil</th>
-                                <th>Jenis</th>
+                                <th>Paket</th>
+                                <th>Ekstra</th>
                                 <th>Foto</th>
                                 <th clospan="3" style="text-align: center;">Aksi</th>
                             </tr>
@@ -27,14 +27,14 @@
                 @foreach($fotostudio as $data)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{$data->kode_pelanggan}}</td>
+                    <td>{{$data->kode}}</td>
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->alamat }}</td>
-                    <td>{{$data->number}}</td>
-                     <td>{{$data->cetak_ukuran}}</td> 
-                     <td>{{($data->tanggal_cetak)}}</td>         
-                     <td>{{($data->tanggal_ambil)}}</td>         
-                      <td>{{ $data->jenis }}</td>  
+                    <td>{{$data->nomber}}</td> 
+                     <td>{{($data->tgl_cetak)}}</td>         
+                     <td>{{($data->tgl_ambil)}}</td>         
+                      <td>{{ $data->paket }}</td>
+                        <td>{{$data->ekstra}}</td>  
                        <td><img src="{{ asset('assets/img/fotostudio/'.$data->foto) }}" alt="" height="500px" width="500px"></td>
                            
                     <td><a href="{{ route('fotostudio.edit', $data->id) }}" class="btn btn-warning">Edit</a></td>
