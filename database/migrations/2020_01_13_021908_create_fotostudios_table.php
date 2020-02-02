@@ -18,7 +18,7 @@ class CreateFotostudiosTable extends Migration
             $table->string('kode');
             $table->string('nama');
             $table->string('alamat');
-            $table->bigInteger('nomber');
+            $table->string('nomber');
             $table->date('tgl_cetak');
             $table->date('tgl_ambil');
             $table->string('paket');

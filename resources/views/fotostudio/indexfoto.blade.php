@@ -18,7 +18,7 @@ display:none;
   background-color: #FE980F; /* Green */
   border: none;
   color: white;
-  padding:5px 16.3%;
+  padding:5px 15.8%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -35,13 +35,13 @@ display:none;
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Foto Studio</title>
-    <link href="frontend/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="frontend/assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="frontend/assets/css/prettyPhoto.css" rel="stylesheet">
-    <link href="frontend/assets/css/price-range.css" rel="stylesheet">
-    <link href="frontend/assets/css/animate.css" rel="stylesheet">
-	<link href="frontend/assets/css/main.css" rel="stylesheet">
-	<link href="frontend/assets/css/responsive.css" rel="stylesheet">
+    <link href="/frontend/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/frontend/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/frontend/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/frontend/assets/css/price-range.css" rel="stylesheet">
+    <link href="/frontend/assets/css/animate.css" rel="stylesheet">
+	<link href="/frontend/assets/css/main.css" rel="stylesheet">
+	<link href="/frontend/assets/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -86,10 +86,10 @@ display:none;
 				<div class="row">
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="frontend/assets/images/home/logo.png" alt="" /></a>
+							<a href="index.html"><img src="/frontend/assets/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
-					<div class="col-md-8 clearfix">
+					{{-- <div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
@@ -99,7 +99,7 @@ display:none;
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div><!--/header-middle-->
@@ -116,12 +116,12 @@ display:none;
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu pull-left">
+						{{-- <div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{(url("index"))}}">Cafe</a></li>
 								<li><a href="{{ url('indexfoto') }}">Foto Studio</a></li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>
@@ -170,16 +170,29 @@ display:none;
   </div>
    <div class="form-group">
     <label>Paket</label>
-    <select class="form-control" name="paket" required>
+		@isset($nama_paket)
+<select class="form-control">
+  <option value="prewedding" {{ $nama_paket == 'prewedding' ? 'selected' : '' }}>Prewedding</option>
+  <option value="wedding" {{ $nama_paket == 'wedding' ? 'selected' : '' }}>Wedding</option>
+	<option value="wedding" {{ $nama_paket == 'personal' ? 'selected' : '' }}>Personal</option>
+	<option value="wedding" {{ $nama_paket == 'duo' ? 'selected' : '' }}>Duo</option>
+	<option value="wedding" {{ $nama_paket == 'group' ? 'selected' : '' }}>Group</option>
+	<option value="wedding" {{ $nama_paket == 'pasphoto' ? 'selected' : '' }}>Pas Photo</option>
+	<option value="wedding" {{ $nama_paket == 'photocolase' ? 'selected' : '' }}>Photo Colase</option>
+</select>
+@endisset
+@empty($nama_paket)
+    <select class="form-control" name="paket" id="sub_menu" required>
       <option value="">-- Pilih paket --</option>
-			<option>Prewedding</option>
-      <option>Wedding</option>
-      <option>Personal</option>
-      <option>Duo</option>
-      <option>Group</option>
-			<option>Pas Photo</option>
-			<option>Photo Colase</option>
+			<option value="prewedding">Prewedding</option>
+      <option value="wedding">Wedding</option>
+      <option value="personal">Personal</option>
+      <option value="duo">Duo</option>
+      <option value="group">Group</option>
+			<option value="pasphoto">Pas Photo</option>
+			<option value="photocolase">Photo Colase</option>
     </select>
+		@endempty
   </div>
 	<div class="form-group">
         <label>Ekstra</label>
@@ -188,9 +201,9 @@ display:none;
 		<label class="label-topright">Foto</label>
 	<div class="from-group">
 	<label class="button upload-topright" for="uploadedhere">Upload
-<input type="file" id="uploadedhere" onchange="myfun()" name="foto" required>
+<input type="file" id="uploadedhere" onchange="myfun()" name="foto[]" multiple>
 </label>
-<button type="submit" class="button2 cetak-topright">Cetak</button>
+<button type="submit" class="button2 cetak-topright">Simpan</button>
 </div>
   <br>
   <br>
@@ -199,33 +212,33 @@ display:none;
 {{-- <div="container"> --}}
 <div class="col-sm-2">
 <div class="image-topright">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage1" name="foto" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage1" name="foto" height="150" width="150">
 </div>
 <div>
 </div>
 <div class="col-sm-2">
 <div class="image-topright-2">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage2" name="foto2" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage2" name="foto" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-3">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage3" name="foto3" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage3" name="foto" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-4">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage4" name="foto4" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage4" name="foto" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-5">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage5" name="foto5" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage5" name="foto" height="150" width="150">
 </div>
 <div>
 <div class="col-sm-2">
 <div class="image-topright-6">
-<img src="multipleimage/assets/images/upload.jpg" id="changeimage6" name="foto6" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage6" name="foto" height="150" width="150">
 </div>
 <div>
 {{-- </div> --}}
@@ -247,7 +260,7 @@ display:none;
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="frontend/assets/images/home/iframe1.png" alt="" />
+										<img src="/frontend/assets/images/home/iframe1.png" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -262,7 +275,7 @@ display:none;
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="frontend/assets/images/home/iframe2.png" alt="" />
+										<img src="/frontend/assets/images/home/iframe2.png" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -277,7 +290,7 @@ display:none;
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="frontend/assets/images/home/iframe3.png" alt="" />
+										<img src="/frontend/assets/images/home/iframe3.png" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -292,7 +305,7 @@ display:none;
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="frontend/assets/images/home/iframe4.png" alt="" />
+										<img src="/frontend/assets/images/home/iframe4.png" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -305,7 +318,7 @@ display:none;
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="frontend/assets/images/home/map.png" alt="" />
+							<img src="/frontend/assets/images/home/map.png" alt="" />
 							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>
@@ -392,11 +405,12 @@ display:none;
 	
 
 
-    <script src="frontend/assets/js/jquery.js"></script>
-	<script src="frontend/assets/js/bootstrap.min.js"></script>
-	<script src="frontend/assets/js/jquery.scrollUp.min.js"></script>
-    <script src="frontend/assets/js/jquery.prettyPhoto.js"></script>
-    <script src="frontend/assets/js/main.js"></script>
+    <script src="/frontend/assets/js/jquery.js"></script>
+	<script src="/frontend/assets/js/bootstrap.min.js"></script>
+	<script src="/frontend/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/frontend/assets/js/jquery.prettyPhoto.js"></script>
+    <script src="/frontend/assets/js/main.js"></script>
+		<script src="/welcome/assets/js/dynamic.js"></script>
 		<script> 
 
 var i = 0;

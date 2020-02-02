@@ -61,12 +61,12 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu pull-left">
+						{{-- <div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 							<li><a href="{{(url("index"))}}" >Cafe</a></li>
 								<li><a href="{{ url('indexfoto') }}">Foto Studio</a></li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">

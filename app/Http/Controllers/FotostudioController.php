@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fotostudio;
+use File;
 use Session;
+
 
 class FotostudioController extends Controller
 {
@@ -46,19 +48,30 @@ class FotostudioController extends Controller
         $fotostudio->tgl_ambil = $request->tgl_ambil;
         $fotostudio->paket = $request->paket;
         $fotostudio->ekstra = $request->ekstra;
-           if ($request->hasFile('foto')) {
+
+           if ($request->hasfile('foto')) {
             $file = $request->file('foto');
+            $file_multi = count($file);
+            // foreach ($request->file('filename') as $image) {
+            //       $name=$image->getClientOriginalName();
+            //       $image->move(public_path() . '/assets/img/fotostudio/',$name);
+            //       $data[]=$name;
+            // }
+           for ($i=0; $i<$file_multi ; $i++) { 
             $destinationPath = public_path() . '/assets/img/fotostudio/';
-            $filename =   '_' . $file->getClientOriginalName();
-            $uploadSuccess = $file->move($destinationPath, $filename);
+            $filename =   '_' . $file[$i]->getClientOriginalName();
+            $uploadSuccess = $file[$i]->move($destinationPath, $filename);
             $fotostudio->foto = $filename;
+            $fotostudio->save();
+           }
         }
         $fotostudio->save();
+        
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Berhasil menyimpan data"
         ]);
-        return redirect()->route('fotostudio.index');
+        return back()->with('success', 'data sudah di simpan');
     }
 
     /**
@@ -103,6 +116,20 @@ class FotostudioController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $fotostudio = fotostudio::findOrFail($id);
+        if ($fotostudio->foto) {
+            $old_foto = $fotostudio->foto;
+            $filepath = public_path() . '/assets/img/fotostudio/' . $fotostudio->foto;
+            try {
+                File::delete($filepath);
+            } catch (FileNotFoundException $e) { }
+        }
+
+        $fotostudio->delete();
+        Session::flash("flash_notification", [
+            "level" => "danger",
+            "message" => "Berhasil menghapus data!"
+        ]);
+        return redirect()->route('fotostudio.index');
     }
 }

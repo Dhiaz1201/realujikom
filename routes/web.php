@@ -14,14 +14,14 @@
 Route::get('/', function () {
     return view('first');
 });
-Route::get('index', function () {
+Route::get('indexcafe', function () {
     return view('pos.index');
 });
 Route::get('cart', function () {
     return view('pos.cart');
 });
-Route::get('indexfoto', function () {
-    return view('fotostudio.indexfoto');
+Route::get('indexfoto/paket/{nama_paket}', function ($nama_paket) {
+    return view('fotostudio.indexfoto',compact('nama_paket'));
 });
 // Route::get('login', function () {
 //     return view('backend.login');

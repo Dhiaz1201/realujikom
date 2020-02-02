@@ -6,7 +6,6 @@
             <div class="card">
                 <div class="card-header">Halaman Artikel Berita</div>
                 <br>
-                <center><a href="{{ route('fotostudio.create') }}" class="btn btn-primary">Tambah</a></center>
                     <br>
                     <div class="table-responsive">
                         <table class="table">
