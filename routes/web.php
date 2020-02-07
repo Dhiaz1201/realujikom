@@ -26,6 +26,12 @@ Route::get('indexfoto/paket/{nama_paket}', function ($nama_paket) {
 // Route::get('login', function () {
 //     return view('backend.login');
 // });
+Route::get('gallery', function () {
+    return view('fotostudio.gallery');
+});
+Route::get('about', function () {
+    return view('fotostudio.about');
+});
 Route::get('register', function () {
     return view('auth.register');
 });

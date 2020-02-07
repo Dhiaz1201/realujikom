@@ -49,14 +49,18 @@ class FotostudioController extends Controller
         $fotostudio->paket = $request->paket;
         $fotostudio->ekstra = $request->ekstra;
 
+        // $input=$request->all();
+        // $image=array();
+        // if ($files=$request->file('foto')) {
+        //     foreach ($files as $file) {
+        //         $filename =   '_' . $file->getClientOriginalName();
+        //          $file->move('foto',$filename);
+        //          $fotos[]=$filename;
+        //     }
+        // }
            if ($request->hasfile('foto')) {
             $file = $request->file('foto');
             $file_multi = count($file);
-            // foreach ($request->file('filename') as $image) {
-            //       $name=$image->getClientOriginalName();
-            //       $image->move(public_path() . '/assets/img/fotostudio/',$name);
-            //       $data[]=$name;
-            // }
            for ($i=0; $i<$file_multi ; $i++) { 
             $destinationPath = public_path() . '/assets/img/fotostudio/';
             $filename =   '_' . $file[$i]->getClientOriginalName();
@@ -64,12 +68,18 @@ class FotostudioController extends Controller
             $fotostudio->foto = $filename;
             $fotostudio->save();
            }
+        // foreach ($request->file('foto') as $image) {
+        //     $name = $image->getClientOriginalName();
+        //     $image->move( public_path() . '/assets/img/fotostudio/', $name);
+        //     $data[] = $name; 
+        //    }
         }
-        $fotostudio->save();
-        
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Berhasil menyimpan data"
+        // // $form = new Form();
+        // $fotostudio->foto=json_encode($data);
+        // $fotostudio->save();
+         Session::flash("flash_notification", [
+            "level" => "danger",
+            "message" => "Berhasil menghapus data!"
         ]);
         return back()->with('success', 'data sudah di simpan');
     }

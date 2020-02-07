@@ -42,6 +42,7 @@ display:none;
     <link href="/frontend/assets/css/animate.css" rel="stylesheet">
 	<link href="/frontend/assets/css/main.css" rel="stylesheet">
 	<link href="/frontend/assets/css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="/welcome/assets/css/magnific-popup.css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -161,38 +162,44 @@ display:none;
     <input type="text" class="form-control"name="nomber"  placeholder="number..." required>
   </div>
   <div class="form-group">
-    <label>Tanggal Cetak</label>
+    <label>Tanggal Pemotretan</label>
     <input type="date" class="form-control" name="tgl_cetak" required>
   </div>
   <div class="form-group">
-    <label>Tanggal Ambil</label>
+    <label>Tanggal Selesai</label>
     <input type="date" class="form-control" name="tgl_ambil" required>
   </div>
    <div class="form-group">
     <label>Paket</label>
+		  
 		@isset($nama_paket)
-<select class="form-control">
-  <option value="prewedding" {{ $nama_paket == 'prewedding' ? 'selected' : '' }}>Prewedding</option>
-  <option value="wedding" {{ $nama_paket == 'wedding' ? 'selected' : '' }}>Wedding</option>
-	<option value="wedding" {{ $nama_paket == 'personal' ? 'selected' : '' }}>Personal</option>
-	<option value="wedding" {{ $nama_paket == 'duo' ? 'selected' : '' }}>Duo</option>
-	<option value="wedding" {{ $nama_paket == 'group' ? 'selected' : '' }}>Group</option>
-	<option value="wedding" {{ $nama_paket == 'pasphoto' ? 'selected' : '' }}>Pas Photo</option>
-	<option value="wedding" {{ $nama_paket == 'photocolase' ? 'selected' : '' }}>Photo Colase</option>
-</select>
+		<input type="text" class="form-control"name="paket" value="{{ $nama_paket }}"  readonly>
+{{-- <select class="form-control" name="paket" disabled>
+  <option value="action7" {{ $nama_paket == 'action7' ? 'selected' : '' }}>Action 7</option>
+  <option value="action8" {{ $nama_paket == 'action8' ? 'selected' : '' }}>Action 8</option>
+	<option value="action9" {{ $nama_paket == 'action9' ? 'selected' : '' }}>Action 9</option>
+	<option value="action10" {{ $nama_paket == 'action10' ? 'selected' : '' }}>Action 10</option>
+	<option value="photopersonal" {{ $nama_paket == 'photopersonal' ? 'selected' : '' }}>Photo Personal</option>
+	<option value="photogroup" {{ $nama_paket == 'photogroup' ? 'selected' : '' }}>Photo Group</option>
+	<option value="pasphoto" {{ $nama_paket == 'pasphoto' ? 'selected' : '' }}>Pas Photo</option>
+	<option value="frendship" {{ $nama_paket == 'frendship' ? 'selected' : '' }}>FrendShip</option>
+	<option value="photocolase" {{ $nama_paket == 'photocolase' ? 'selected' : '' }}>Photo Colase</option>
+</select> --}}
 @endisset
-@empty($nama_paket)
-    <select class="form-control" name="paket" id="sub_menu" required>
+{{-- @empty($nama_paket)
+    <select class="form-control" name="paket" disabled>
       <option value="">-- Pilih paket --</option>
-			<option value="prewedding">Prewedding</option>
-      <option value="wedding">Wedding</option>
-      <option value="personal">Personal</option>
-      <option value="duo">Duo</option>
-      <option value="group">Group</option>
+			<option value="action7">Action 7</option>
+      <option value="action8">Action 8</option>
+			<option value="action9">Action 9</option>
+			<option value="action10">Action 10</option>
+      <option value="photopersonal">Photo Personal</option>
+      <option value="photogroup">Photo Group</option>
 			<option value="pasphoto">Pas Photo</option>
+			<option value="frendship">FrendShip</option>
 			<option value="photocolase">Photo Colase</option>
     </select>
-		@endempty
+		@endempty --}}
   </div>
 	<div class="form-group">
         <label>Ekstra</label>
@@ -203,7 +210,7 @@ display:none;
 	<label class="button upload-topright" for="uploadedhere">Upload
 <input type="file" id="uploadedhere" onchange="myfun()" name="foto[]" multiple>
 </label>
-<button type="submit" class="button2 cetak-topright">Simpan</button>
+<button type="submit" class="button2 cetak-topright simpan">Simpan</button>
 </div>
   <br>
   <br>
@@ -212,10 +219,9 @@ display:none;
 {{-- <div="container"> --}}
 <div class="col-sm-2">
 <div class="image-topright">
-<img src="/multipleimage/assets/images/upload.jpg" id="changeimage1" name="foto" height="150" width="150">
+<img src="/multipleimage/assets/images/upload.jpg" id="changeimage1"  name="foto" height="150" width="150">
 </div>
 <div>
-</div>
 <div class="col-sm-2">
 <div class="image-topright-2">
 <img src="/multipleimage/assets/images/upload.jpg" id="changeimage2" name="foto" height="150" width="150">
@@ -411,6 +417,7 @@ display:none;
     <script src="/frontend/assets/js/jquery.prettyPhoto.js"></script>
     <script src="/frontend/assets/js/main.js"></script>
 		<script src="/welcome/assets/js/dynamic.js"></script>
+		<script src="/sweetalert/assets/js/sweetalert2.all.min.js"></script>
 		<script> 
 
 var i = 0;
@@ -459,19 +466,17 @@ currentimage6.src = reader.result;
 reader.readAsDataURL(x);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
+<script>
+$('.simpan').click(function(){
+Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Data Sudah Tersimpan',
+  showConfirmButton: false,
+  timer: 1500
+})
+});
 </script>
 
 </body>

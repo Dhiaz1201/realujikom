@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Welcome</title>
+    <title>Gallery</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -32,12 +32,12 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="{{url('indexfoto')}}"><span class="flaticon-camera"></span>Foto Studio</a></h1>
+			<h1 id="colorlib-logo"><a href="index.html"><span class="flaticon-camera"></span>Capture</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
-					<li><a href="{{url('gallery')}}">Gallery</a></li>
-					<li><a href="{{url('about')}}">About</a></li>
+					<li><a href="{{url('/')}}">Home</a></li>
+					<li class="colorlib-active"><a href="{{ url('gallery') }}">Gallery</a></li>
+					<li><a href="{{ url('about') }}">About</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
@@ -56,93 +56,103 @@
 			</div>
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
+			<section class="ftco-section bg-light ftco-bread">
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center">
+	          <div class="col-md-9 ftco-animate">
+	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Gallery</span></p>
+	            <h1 class="mb-3 bread">Galleries</h1>
+	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	          </div>
+	        </div>
+				</div>
+			</section>
 			<section class="ftco-section-2">
 				<div class="photograhy">
 					<div class="row no-gutters">
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/action7')}}" class="photography-entry img d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/action7.jpg);">
+							<a href="images/image_1.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_1.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 1</h3>
-									<span class="tag" name="paketfoto" id="main_menu" value="prewedding">Action 7</span>
-									{{-- <option class="tag" name="paketfoto" id="main_menu" value="prewedding" onchange="populate(this.id,'paket')">Prewedding</option> --}}
+									<h3>Work 01</h3>
+									<span class="tag">Model</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/action8')}}" class="photography-entry img d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/action8.jpg);">
+							<a href="images/image_2.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_2.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 2</h3>
-									<span class="tag" name="paketfoto" id="main_menu" value="wedding"> Action 8</span>
+									<h3>Work 02</h3>
+									<span class="tag">Nature</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/action9')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/action9.jpg);">
+							<a href="images/image_3.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_3.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 3</h3>
-									<span class="tag">Action 9</span>
+									<h3>Work 03</h3>
+									<span class="tag">Fashion</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/action10')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/action10.jpg);">
+							<a href="images/image_4.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_4.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 4</h3>
-									<span class="tag">Action 10</span>
+									<h3>Work 04</h3>
+									<span class="tag">Travel</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/photopersonal')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/photopersonal.jpg);">
+							<a href="images/image_5.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_5.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 5</h3>
-									<span class="tag">Photo Personal</span>
+									<h3>Work 05</h3>
+									<span class="tag">Travel</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/photogroup')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/photogroup.jpg);">
+							<a href="images/image_6.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_6.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 6</h3>
-									<span class="tag">Photo Group</span>
+									<h3>Work 06</h3>
+									<span class="tag">Travel</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/pasphoto')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/pasphoto.jpg);">
+							<a href="images/image_7.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_7.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 7</h3>
-									<span class="tag">Pas Photo</span>
+									<h3>Work 07</h3>
+									<span class="tag">Fashion, Model</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/frendship')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/paket/frendship.jpg);">
+							<a href="images/image_8.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_8.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>paket 8</h3>
-									<span class="tag">FrendShip</span>
+									<h3>Work 08</h3>
+									<span class="tag">Nature</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="{{ url('indexfoto/paket/photocolase')}}" class="photography-entry img  d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_9.jpg);">
+							<a href="images/image_9.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_9.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
-									<h3>Paket 9</h3>
-									<span class="tag">Photo Colase</span>
+									<h3>Work 09</h3>
+									<span class="tag">Technology</span>
 								</div>
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="/welcome/assets/images/image_10.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_10.jpg);">
+							<a href="images/image_10.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_10.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 10</h3>
@@ -151,7 +161,7 @@
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="/welcome/assets/images/image_11.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_11.jpg);">
+							<a href="images/image_11.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_11.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 11</h3>
@@ -160,7 +170,7 @@
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="/welcome/assets/images/image_12.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_12.jpg);">
+							<a href="images/image_12.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_12.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 12</h3>
@@ -244,7 +254,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="/welcome/assets/js/google-map.js"></script>
   <script src="/welcome/assets/js/main.js"></script>
-  <script src="/welcome/assets/js/dynamic.js"></script>
     
   </body>
 </html>
