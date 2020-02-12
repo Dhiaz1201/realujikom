@@ -56,6 +56,8 @@
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="/admin/assets/style.css">
+    <link rel="stylesheet" href="/admin/assets/css/modals.css">
+    <link rel="stylesheet" href="/admin/assets/css/buttons.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="/admin/assets/css/responsive.css">

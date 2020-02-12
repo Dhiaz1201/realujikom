@@ -15,7 +15,6 @@ class CreateFotostudiosTable extends Migration
     {
         Schema::create('fotostudios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode');
             $table->string('nama');
             $table->string('alamat');
             $table->string('nomber');

@@ -1,3 +1,11 @@
+<style>
+.bg-navbar{
+	background-color: #242423;
+}
+.color-text{
+	color:white;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
 
+	
     <link rel="stylesheet" href="/welcome/assets/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="/welcome/assets/css/animate.css">
     
@@ -35,11 +44,10 @@
 			<h1 id="colorlib-logo"><a href="index.html"><span class="flaticon-camera"></span>Capture</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href="{{url('/')}}">Home</a></li>
-					<li class="colorlib-active"><a href="{{ url('gallery') }}">Gallery</a></li>
-					<li><a href="{{ url('about') }}">About</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="{{url('/')}}" class="color-text">Home</a></li>
+					<li class="{{url('gallery')}}"><a href="gallery.html">Gallery</a></li>
+					<li><a href="{{url('about')}}">About</a></li>
+					<li><a href="{{url('contant')}}">Contact</a></li>
 				</ul>
 			</nav>
 
@@ -56,7 +64,46 @@
 			</div>
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
-			<section class="ftco-section bg-light ftco-bread">
+		<nav class="navbar navbar-expand-lg navbar-light bg-navbar">
+  <a class="navbar-brand" style="color:white" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        {{-- <a class="nav-link disabled"  style="color:white" href="#" tabindex="-1" aria-disabled="true">Disabled</a> --}}
+				<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Action
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Action 7</a>
+					<a class="dropdown-item" href="#">Action 8</a>
+					<a class="dropdown-item" href="#">Action 9</a>
+						<a class="dropdown-item" href="#">Action 10</a>
+				</div>
+			</div>
+      </li>
+		 <li class="nav-item active">
+        <a class="nav-link" style="color:white" href="#">Photo Personal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  style="color:white" href="#">Photo Group</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  style="color:white" href="#">Pas Photo</a>
+      </li>
+			  <li class="nav-item">
+        <a class="nav-link"  style="color:white" href="#">Frendship</a>
+      </li>
+			  <li class="nav-item">
+        <a class="nav-link"  style="color:white" href="#">Photo Colase</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+			{{-- <section class="ftco-section bg-light ftco-bread">
 				<div class="container">
 					<div class="row no-gutters slider-text align-items-center">
 	          <div class="col-md-9 ftco-animate">
@@ -66,20 +113,23 @@
 	          </div>
 	        </div>
 				</div>
-			</section>
+			</section> --}}
 			<section class="ftco-section-2">
 				<div class="photograhy">
 					<div class="row no-gutters">
+					@foreach ($gallery as $data )
 						<div class="col-md-4 ftco-animate">
-							<a href="images/image_1.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_1.jpg);">
-								<div class="overlay"></div>
+							<a href="images/image_1.jpg" >
+							<img class="photography-entry img image-popup d-flex justify-content-center align-items-center" src="{{ asset('assets/img/galery/'.$data->foto_galery) }}"></img>
+								{{-- <div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 01</h3>
 									<span class="tag">Model</span>
-								</div>
+								</div> --}}
 							</a>
 						</div>
-						<div class="col-md-4 ftco-animate">
+						@endforeach
+						{{-- <div class="col-md-4 ftco-animate">
 							<a href="images/image_2.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_2.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
@@ -161,7 +211,7 @@
 							</a>
 						</div>
 						<div class="col-md-4 ftco-animate">
-							<a href="images/image_11.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(/welcome/assets/images/image_11.jpg);">
+							<a href="images/image_11.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_11.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
 									<h3>Work 11</h3>
@@ -177,7 +227,7 @@
 									<span class="tag">Photography</span>
 								</div>
 							</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</section>
@@ -251,7 +301,7 @@
   <script src="/welcome/assets/js/bootstrap-datepicker.js"></script>
   <script src="/welcome/assets/js/jquery.timepicker.min.js"></script>
   <script src="/welcome/assets/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/welcome/assets/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="/welcome/assets/js/google-map.js"></script>
   <script src="/welcome/assets/js/main.js"></script>
     

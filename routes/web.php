@@ -26,9 +26,10 @@ Route::get('indexfoto/paket/{nama_paket}', function ($nama_paket) {
 // Route::get('login', function () {
 //     return view('backend.login');
 // });
-Route::get('gallery', function () {
-    return view('fotostudio.gallery');
-});
+// Route::get('gallery', function () {
+//     return view('fotostudio.gallery');
+// });
+Route::resource('gallery','FrontgalleryController');
 Route::get('about', function () {
     return view('fotostudio.about');
 });
@@ -44,6 +45,8 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
     Route::resource('makanan', 'MakananController');
     Route::resource('fotostudio', 'FotostudioController');
  Route::resource('kategori', 'KategoriController');
+  Route::resource('kategorifoto', 'KategoriFotoController'); 
+  Route::resource('gallery', 'GalleryController');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/struk', 'StrukController@index');

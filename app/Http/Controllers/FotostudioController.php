@@ -40,7 +40,6 @@ class FotostudioController extends Controller
     public function store(Request $request)
     {
          $fotostudio = new fotostudio();
-        $fotostudio->kode = $request->kode;
         $fotostudio->nama = $request->nama;
         $fotostudio->alamat = $request->alamat;
         $fotostudio->nomber = $request->nomber;
@@ -49,15 +48,6 @@ class FotostudioController extends Controller
         $fotostudio->paket = $request->paket;
         $fotostudio->ekstra = $request->ekstra;
 
-        // $input=$request->all();
-        // $image=array();
-        // if ($files=$request->file('foto')) {
-        //     foreach ($files as $file) {
-        //         $filename =   '_' . $file->getClientOriginalName();
-        //          $file->move('foto',$filename);
-        //          $fotos[]=$filename;
-        //     }
-        // }
            if ($request->hasfile('foto')) {
             $file = $request->file('foto');
             $file_multi = count($file);
@@ -68,12 +58,40 @@ class FotostudioController extends Controller
             $fotostudio->foto = $filename;
             $fotostudio->save();
            }
-        // foreach ($request->file('foto') as $image) {
-        //     $name = $image->getClientOriginalName();
-        //     $image->move( public_path() . '/assets/img/fotostudio/', $name);
-        //     $data[] = $name; 
-        //    }
-        }
+    //   $photos = $request->file('foto');
+ 
+    //     if (!is_array($photos)) {
+    //         $photos = [$photos];
+    //     }
+ 
+    //     if (!is_dir($this->photos_path)) {
+    //         mkdir($this->photos_path, 0777);
+    //     }
+ 
+    //     for ($i = 0; $i < count($photos); $i++) {
+    //         $photo = $photos[$i];
+    //         $name = sha1(date('YmdHis') . str_random(30));
+    //         $save_name = $name . '.' . $photo->getClientOriginalExtension();
+    //         $resize_name = $name . str_random(2) . '.' . $photo->getClientOriginalExtension();
+ 
+    //         Image::make($photo)
+    //             ->resize(250, null, function ($constraints) {
+    //                 $constraints->aspectRatio();
+    //             })
+    //             ->save($this->photos_path . '/' . $resize_name);
+ 
+    //         $photo->move($this->photos_path, $save_name);
+ 
+    //         $upload = new Upload();
+    //         $upload->filename = $save_name;
+    //         $upload->resized_name = $resize_name;
+    //         $upload->original_name = basename($photo->getClientOriginalName());
+    //         $upload->save();
+    //     }
+    //     return Response::json([
+    //         'message' => 'Image saved Successfully'
+    //     ], 200);
+    }
         // // $form = new Form();
         // $fotostudio->foto=json_encode($data);
         // $fotostudio->save();
@@ -92,7 +110,8 @@ class FotostudioController extends Controller
      */
     public function show($id)
     {
-        //
+        $fotostudio = fotostudio::findOrFail($id);
+        return view('backend.fotostudio.show',compact('fotostudio'));
     }
 
     /**

@@ -92,7 +92,7 @@ colum-sm-2{
 
 .label-topright{
   position: absolute;
-  top: 17%;
+  top: 15.2%;
   right: 44.6%;
 }
 
@@ -105,7 +105,7 @@ colum-sm-2{
 .cetak-topright{
   position: absolute;
   top: 43%;
-  right: 9.3%;
+  right: 10%;
 }
 
 ul li {
@@ -176,6 +176,12 @@ label{
 	text-decoration: none;
 	font-size: 10pt;
 }
+.textarea-topright{
+  position: absolute;
+  top: -100%;
+  right: 100%;
+  font-size: 18px;
+} 
 
 .image-topright{
   position: absolute;

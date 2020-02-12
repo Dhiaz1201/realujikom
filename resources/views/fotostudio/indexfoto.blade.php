@@ -14,11 +14,14 @@ display:none;
   margin: 4px 2px;
   cursor: pointer;
 }
+.bg-navbar{
+	background-color: #EAE8E8;
+}
 .button2 {
   background-color: #FE980F; /* Green */
   border: none;
   color: white;
-  padding:5px 15.8%;
+  padding:5px 17.5%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -35,13 +38,16 @@ display:none;
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Foto Studio</title>
-    <link href="/frontend/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/frontend/assets/css/bootstrap2.min.css" rel="stylesheet">
+		{{-- <link href="/frontend/assets/css/bootstrap2.min.css" rel="stylesheet"> --}}
     <link href="/frontend/assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="/frontend/assets/css/prettyPhoto.css" rel="stylesheet">
     <link href="/frontend/assets/css/price-range.css" rel="stylesheet">
     <link href="/frontend/assets/css/animate.css" rel="stylesheet">
 	<link href="/frontend/assets/css/main.css" rel="stylesheet">
 	<link href="/frontend/assets/css/responsive.css" rel="stylesheet">
+	<link href="/frontend/assets/css/dropzone.css" rel="stylesheet">
+	<link href="/frontend/assets/css/custom.css" rel="stylesheet">
 	<link rel="stylesheet" href="/welcome/assets/css/magnific-popup.css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -56,31 +62,15 @@ display:none;
 
 <body>
 	<header id="header"><!--header-->
-		<div class="header_top"><!--header_top-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href=""><i class="fa fa-twitter"></i></a></li>
-								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header_top-->
+		<nav class="navbar navbar-expand-lg navbar-light bg-navbar" style="height:50px">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+  
+  </div>
+</nav>
 		
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
@@ -110,12 +100,6 @@ display:none;
 				<div class="row">
 					<div class="col-sm-9">
 						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
 						</div>
 						{{-- <div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
@@ -144,80 +128,59 @@ display:none;
     <h1>Foto Studio</h1>
     <form  action="{{ route('fotostudio.store') }}" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
-
-		  <div class="form-group">
-    <label>Kode Pelanggan</label>
-    <input type="text" class="form-control"name="kode" placeholder="kode..." required>
-  </div>
-     <div class="form-group">
-    <label>Nama</label>
+		<div class="form-row">
+    <div class="col">
+	 <label>Nama</label>
     <input type="text" class="form-control"name="nama" placeholder="nama..." required>
-  </div>
-  <div class="form-group">
-    <label>Alamat</label>
-    <input type="text" class="form-control"name="alamat"  placeholder="alamat..." required>
-  </div>
-	 <div class="form-group">
-    <label>Nomber Pelanggan</label>
-    <input type="text" class="form-control"name="nomber"  placeholder="number..." required>
-  </div>
-  <div class="form-group">
-    <label>Tanggal Pemotretan</label>
+    </div>
+    <div class="col">
+	<label>Tanggal Pemotretan</label>
     <input type="date" class="form-control" name="tgl_cetak" required>
+    </div>
   </div>
-  <div class="form-group">
-    <label>Tanggal Selesai</label>
+		<div class="form-row">
+    <div class="col">
+	  <label>Alamat</label>
+    <input type="text" class="form-control"name="alamat"  placeholder="alamat..." required>
+    </div>
+    <div class="col">
+ <label>Tanggal Selesai</label>
     <input type="date" class="form-control" name="tgl_ambil" required>
+    </div>
   </div>
-   <div class="form-group">
-    <label>Paket</label>
+		<div class="form-row">
+    <div class="col">
+	   <label>Nomber Pelanggan</label>
+    <input type="text" class="form-control"name="nomber"  placeholder="number..." required>
+    </div>
+    <div class="col">
+ <label>Foto</label>
+			  <input type="file" name="foto[]" class="form-control" multiple></input>
+    </div>
+  </div>
+		<div class="form-row">
+    <div class="col">
+	   <label>Ekstra</label>
+        <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
+    </div>
+    <div class="col">
+ <label>Paket</label>
 		  
 		@isset($nama_paket)
 		<input type="text" class="form-control"name="paket" value="{{ $nama_paket }}"  readonly>
-{{-- <select class="form-control" name="paket" disabled>
-  <option value="action7" {{ $nama_paket == 'action7' ? 'selected' : '' }}>Action 7</option>
-  <option value="action8" {{ $nama_paket == 'action8' ? 'selected' : '' }}>Action 8</option>
-	<option value="action9" {{ $nama_paket == 'action9' ? 'selected' : '' }}>Action 9</option>
-	<option value="action10" {{ $nama_paket == 'action10' ? 'selected' : '' }}>Action 10</option>
-	<option value="photopersonal" {{ $nama_paket == 'photopersonal' ? 'selected' : '' }}>Photo Personal</option>
-	<option value="photogroup" {{ $nama_paket == 'photogroup' ? 'selected' : '' }}>Photo Group</option>
-	<option value="pasphoto" {{ $nama_paket == 'pasphoto' ? 'selected' : '' }}>Pas Photo</option>
-	<option value="frendship" {{ $nama_paket == 'frendship' ? 'selected' : '' }}>FrendShip</option>
-	<option value="photocolase" {{ $nama_paket == 'photocolase' ? 'selected' : '' }}>Photo Colase</option>
-</select> --}}
 @endisset
-{{-- @empty($nama_paket)
-    <select class="form-control" name="paket" disabled>
-      <option value="">-- Pilih paket --</option>
-			<option value="action7">Action 7</option>
-      <option value="action8">Action 8</option>
-			<option value="action9">Action 9</option>
-			<option value="action10">Action 10</option>
-      <option value="photopersonal">Photo Personal</option>
-      <option value="photogroup">Photo Group</option>
-			<option value="pasphoto">Pas Photo</option>
-			<option value="frendship">FrendShip</option>
-			<option value="photocolase">Photo Colase</option>
-    </select>
-		@endempty --}}
-  </div>
-	<div class="form-group">
-        <label>Ekstra</label>
-        <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
     </div>
-		<label class="label-topright">Foto</label>
-	<div class="from-group">
-	<label class="button upload-topright" for="uploadedhere">Upload
-<input type="file" id="uploadedhere" onchange="myfun()" name="foto[]" multiple>
-</label>
+  </div>
 <button type="submit" class="button2 cetak-topright simpan">Simpan</button>
+	</div>
 </div>
   <br>
   <br>
     </from>
 </div>
+ 
 {{-- <div="container"> --}}
-<div class="col-sm-2">
+{{-- <div class="col-sm-2">
 <div class="image-topright">
 <img src="/multipleimage/assets/images/upload.jpg" id="changeimage1"  name="foto" height="150" width="150">
 </div>
@@ -246,7 +209,7 @@ display:none;
 <div class="image-topright-6">
 <img src="/multipleimage/assets/images/upload.jpg" id="changeimage6" name="foto" height="150" width="150">
 </div>
-<div>
+<div> --}}
 {{-- </div> --}}
   </body>
 </html>
@@ -261,67 +224,7 @@ display:none;
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
-					<div class="col-sm-7">
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/frontend/assets/images/home/iframe1.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/frontend/assets/images/home/iframe2.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/frontend/assets/images/home/iframe3.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="#">
-									<div class="iframe-img">
-										<img src="/frontend/assets/images/home/iframe4.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
-									</div>
-								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
-							</div>
-						</div>
-					</div>
+			 
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="/frontend/assets/images/home/map.png" alt="" />
@@ -416,9 +319,12 @@ display:none;
 	<script src="/frontend/assets/js/jquery.scrollUp.min.js"></script>
     <script src="/frontend/assets/js/jquery.prettyPhoto.js"></script>
     <script src="/frontend/assets/js/main.js"></script>
+		<script  type="text/javascript"  src="/frontend/assets/js/dropzone.js"></script>
+		<script src="/frontend/assets/js/jquery-dropzone.js"></script>
+		<script src="/frontend/assets/js/dropzone-config.js"></script>
 		<script src="/welcome/assets/js/dynamic.js"></script>
 		<script src="/sweetalert/assets/js/sweetalert2.all.min.js"></script>
-		<script> 
+		{{-- <script> 
 
 var i = 0;
 function myfun(){
@@ -466,7 +372,7 @@ currentimage6.src = reader.result;
 reader.readAsDataURL(x);
 }
 
-</script>
+</script> --}}
 <script>
 $('.simpan').click(function(){
 Swal.fire({
