@@ -9,4 +9,8 @@ class Galery extends Model
   public function kategorifoto(){
       return $this->belongsTo('App\KategoriFoto','kategori_foto_id');
   }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

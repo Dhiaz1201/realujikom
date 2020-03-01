@@ -55,7 +55,9 @@ class FotostudioController extends Controller
             $destinationPath = public_path() . '/assets/img/fotostudio/';
             $filename =   '_' . $file[$i]->getClientOriginalName();
             $uploadSuccess = $file[$i]->move($destinationPath, $filename);
-            $fotostudio->foto = $filename;
+            // $fotostudio->foto = $filename;
+            $data[] =$filename;
+            $fotostudio->foto =json_encode( $data);
             $fotostudio->save();
            }
     //   $photos = $request->file('foto');
@@ -99,7 +101,7 @@ class FotostudioController extends Controller
             "level" => "danger",
             "message" => "Berhasil menghapus data!"
         ]);
-        return back()->with('success', 'data sudah di simpan');
+        return redirect('/');
     }
 
     /**

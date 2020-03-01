@@ -36,9 +36,11 @@
                                     <td>{{($data->tgl_ambil)}}</td>         
                                     <td>{{ $data->paket }}</td>
                                         <td>{{$data->ekstra}}</td>  
-                                    <td><img src="{{ asset('assets/img/fotostudio/'.$data->foto) }}" alt="" height="500px" width="500px"></td>
+                                    <td><img src="{{ asset('assets/img/fotostudio/'.$data->foto) }}" alt="" height="500px" width="500px" ></td>
                                          <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ route('fotostudio.edit', $data->id) }}"></button>
+                                         <button  data-toggle="modal" data-target=".bd-example-modal-lg-{{ $data->id }}" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                         {{-- <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed" data-toggle="modal" data-target="#PrimaryModalhdbgcl"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> --}}
+                                            {{-- <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ route('fotostudio.show', $data->id) }}"></button> --}}
                                             </td>
                                             <td>
                                           <form action="{{ route('fotostudio.destroy', $data->id) }}" method="post">
@@ -48,6 +50,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @include('backend.fotostudio.show')
                                       @endforeach
                                 </table>
                             </div>

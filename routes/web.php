@@ -29,7 +29,7 @@ Route::get('indexfoto/paket/{nama_paket}', function ($nama_paket) {
 // Route::get('gallery', function () {
 //     return view('fotostudio.gallery');
 // });
-Route::resource('gallery','FrontgalleryController');
+
 Route::get('about', function () {
     return view('fotostudio.about');
 });
@@ -39,6 +39,7 @@ Route::get('register', function () {
 Route::get('login', function () {
     return view('auth.login');
 });
+
 Auth::routes();
 Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
     Route::resource('minuman', 'MinumanController');
@@ -50,3 +51,8 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/struk', 'StrukController@index');
+
+Route::group(['prefix'=>'/'], function(){
+    Route::get('/gallery','FrontgalleryController@index');
+    Route::get('/gallery/kategorifoto/{kategori_foto}', 'FrontgalleryController@kategorifoto')->name('kategorifoto');
+});

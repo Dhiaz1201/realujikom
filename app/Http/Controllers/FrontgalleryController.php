@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Galery;
+use App\KategoriFoto;
 
 class FrontgalleryController extends Controller
 {
@@ -12,10 +13,15 @@ class FrontgalleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $gallery = Galery::orderBy('created_at','desc')->get();
-        return view('fotostudio.gallery',compact('gallery'));
+    public function index(){
+        $gallery = Galery::orderBy('created_at', 'desc')->paginate(9);
+        $kategori = KategoriFoto::orderBy('created_at','desc')->get();
+        return view('fotostudio.gallery',compact('gallery','kategori'));
+    }
+    public function kategorifoto(){
+    //    $gallery = $kategori->galery()->latest()->paginate(9);
+         $kategori = KategoriFoto::with(['galery'])->withCount(['galery'])->getParent()->orderBy('id', 'ASC')->paginate(9)->get();
+       return view('fotostudio.kategorifoto', compact('kategori'));
     }
 
     /**

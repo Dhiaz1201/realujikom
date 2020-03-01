@@ -18,10 +18,10 @@ display:none;
 	background-color: #EAE8E8;
 }
 .button2 {
-  background-color: #FE980F; /* Green */
+  background-color: ; /* Green */
   border: none;
   color: white;
-  padding:5px 17.5%;
+  padding:10px 3.5%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -126,6 +126,7 @@ display:none;
   <body>
   <div class="container">
     <h1>Foto Studio</h1>
+		<br><br>
     <form  action="{{ route('fotostudio.store') }}" method="post" enctype="multipart/form-data">
 		 {{ csrf_field() }}
 		<div class="form-row">
@@ -139,9 +140,11 @@ display:none;
     </div>
   </div>
 		<div class="form-row">
-    <div class="col">
-	  <label>Alamat</label>
-    <input type="text" class="form-control"name="alamat"  placeholder="alamat..." required>
+		 <div class="col">
+ <label>Paket</label>
+		@isset($nama_paket)
+		<input type="text" class="form-control"name="paket" value="{{ $nama_paket }}"  readonly>
+@endisset
     </div>
     <div class="col">
  <label>Tanggal Selesai</label>
@@ -159,19 +162,16 @@ display:none;
     </div>
   </div>
 		<div class="form-row">
-    <div class="col">
+		  <div class="col">
+	  <label>Alamat</label>
+   <textarea id="" name="alamat" class="form-control" name="" rows="10" cols="50"  placeholder="Alamat..."></textarea>
+    </div>  
+     <div class="col">
 	   <label>Ekstra</label>
         <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
     </div>
-    <div class="col">
- <label>Paket</label>
-		  
-		@isset($nama_paket)
-		<input type="text" class="form-control"name="paket" value="{{ $nama_paket }}"  readonly>
-@endisset
-    </div>
   </div>
-<button type="submit" class="button2 cetak-topright simpan">Simpan</button>
+<button type="submit" class="fa fa-save button2 cetak-topright simpan btn-primary"> Simpan</button>
 	</div>
 </div>
   <br>
