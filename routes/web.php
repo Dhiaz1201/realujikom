@@ -42,10 +42,7 @@ Route::get('login', function () {
 
 Auth::routes();
 Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
-    Route::resource('minuman', 'MinumanController');
-    Route::resource('makanan', 'MakananController');
     Route::resource('fotostudio', 'FotostudioController');
- Route::resource('kategori', 'KategoriController');
   Route::resource('kategorifoto', 'KategoriFotoController'); 
   Route::resource('gallery', 'GalleryController');
 });

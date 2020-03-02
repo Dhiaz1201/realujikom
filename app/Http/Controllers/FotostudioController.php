@@ -110,9 +110,17 @@ class FotostudioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $fotostudio = fotostudio::findOrFail($id);
+        if($request->ajax()) {
+            $response = [
+                'message'   => 'berhasil',
+                'data'  => $fotostudio
+            ];
+
+            return response()->json($response, 200);
+        }
         return view('backend.fotostudio.show',compact('fotostudio'));
     }
 

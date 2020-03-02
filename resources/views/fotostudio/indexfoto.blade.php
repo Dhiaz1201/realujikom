@@ -158,7 +158,7 @@ display:none;
     </div>
     <div class="col">
  <label>Foto</label>
-			  <input type="file" name="foto[]" class="form-control" multiple></input>
+			  <input id = "fileupload" type="file" name="foto[]" class="form-control" multiple></input>
     </div>
   </div>
 		<div class="form-row">
@@ -171,6 +171,8 @@ display:none;
         <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
     </div>
   </div>
+	<div id = "dvPreview">
+	</div>
 <button type="submit" class="fa fa-save button2 cetak-topright simpan btn-primary"> Simpan</button>
 	</div>
 </div>
@@ -382,6 +384,69 @@ Swal.fire({
   showConfirmButton: false,
   timer: 1500
 })
+});
+</script>
+<script language="javascript" type="text/javascript">
+window.onload = function () {
+    var fileUpload = document.getElementById("fileupload");
+    fileUpload.onchange = function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = document.getElementById("dvPreview");
+            dvPreview.innerHTML = "";
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            for (var i = 0; i < fileUpload.files.length; i++) {
+                var file = fileUpload.files[i];
+                if (regex.test(file.name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = document.createElement("IMG");
+                        img.height = "100";
+                        img.width = "100";
+                        img.src = e.target.result;
+                        dvPreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert(file.name + " is not a valid image file.");
+                    dvPreview.innerHTML = "";
+                    return false;
+                }
+            }
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    }
+};
+</script>
+
+<script>
+$ ( function () {
+    $ ( "#fileupload" ) .change ( function () {
+        if ( typeof (FileReader)! = "undefined" ) {
+            var dvPreview = $ ( "#dvPreview" );
+            dvPreview.html ( "" );
+            var regex = /^([a-zA-Z0-9\s_\\.?-:[)+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            $ ($ ( ini ) [0] .files) .each ( function () {
+                file var = $ ( ini );
+                if (regex.test (file [0] .name.toLowerCase ())) {
+                    var reader = FileReader baru ();
+                    reader.onload = fungsi (e) {
+                        var img = $ ( "<img />" );
+                        img.attr ( "style" , "tinggi: 100px; lebar: 100px" );
+                        img.attr ( "src" , e.target.result);
+                        dvPreview.append (img);
+                    }
+                    reader.readAsDataURL (file [0]);
+                } lain {
+                    alert (file [0] .name + "bukan file gambar yang valid." );
+                    dvPreview.html ( "" );
+                    return false ;
+                }
+            });
+        } lain {
+            alert ( "Browser ini tidak mendukung HTML5 FileReader." );
+        }
+    });
 });
 </script>
 

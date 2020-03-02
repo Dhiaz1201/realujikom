@@ -33,23 +33,25 @@
             </div>
             <div class="modal-body">
                  <div class="form-group" id="ambildata">
-                   
+                     {{-- <img src="{{ asset('assets/img/fotostudio/'.$data->foto) }}" alt="" height="500px" width="500px"> --}}
                  </div>
         </div>
     </div>
 </div>
+<script src="/admin/assets/js/vendor/jquery-1.12.4.min.js"></script>
   <script>
             $.ajax({
-                  type:'GET',
-                  datatype : 'json',
-                  success:function(berhasil){
-                       $.each(berhasil.data,function(key,value){
-                       $(".ambildata").append(
-                       `
-              <img src="asset('assets/img/fotostudio/'${value.foto}" alt="" height="500px" width="500px" > 
-                        `
-                        )
-               })
+                    url:"/home/fotostudio/{{ $data->id }}" ,
+                    type:'GET',
+                    datatype : 'json',
+                    success:function(berhasil){
+                        $.each(JSON.parse(berhasil.data.foto), (key, val) => {
+                            $("#ambildata").append(
+                            `
+                                <img src="/assets/img/fotostudio/${val}" alt="" style="height: 250px; width: 250px;" class="img-fluid"> 
+                            `
+                                )
+                        })
           },
          error:function (gagal){
          console.log(gagal)
