@@ -22,7 +22,7 @@
                             </div>
                         </div> --}}
                            
-<div class="modal fade bd-example-modal-lg-{{$data->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg-{{$data->id}}" id="modal-edit-{{ $data->id }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -32,30 +32,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                 <div class="form-group" id="ambildata">
+                 <div class="form-group" id="ambildata-{{$data->id}}">
                      {{-- <img src="{{ asset('assets/img/fotostudio/'.$data->foto) }}" alt="" height="500px" width="500px"> --}}
                  </div>
         </div>
     </div>
 </div>
-<script src="/admin/assets/js/vendor/jquery-1.12.4.min.js"></script>
-  <script>
-            $.ajax({
-                    url:"/home/fotostudio/{{ $data->id }}" ,
-                    type:'GET',
-                    datatype : 'json',
-                    success:function(berhasil){
-                        $.each(JSON.parse(berhasil.data.foto), (key, val) => {
-                            $("#ambildata").append(
-                            `
-                                <img src="/assets/img/fotostudio/${val}" alt="" style="height: 250px; width: 250px;" class="img-fluid"> 
-                            `
-                                )
-                        })
-          },
-         error:function (gagal){
-         console.log(gagal)
-      }
-})
-
-     </script>

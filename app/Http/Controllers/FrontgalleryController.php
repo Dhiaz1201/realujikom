@@ -18,10 +18,10 @@ class FrontgalleryController extends Controller
         $kategori = KategoriFoto::orderBy('created_at','desc')->get();
         return view('fotostudio.gallery',compact('gallery','kategori'));
     }
-    public function kategorifoto(){
-    //    $gallery = $kategori->galery()->latest()->paginate(9);
-         $kategori = KategoriFoto::with(['galery'])->withCount(['galery'])->getParent()->orderBy('id', 'ASC')->paginate(9)->get();
-       return view('fotostudio.kategorifoto', compact('kategori'));
+    public function kategorifoto(KategoriFoto $kategori){
+       $gallery = $kategori->galery()->latest()->paginate(9);
+        //  $kategori = KategoriFoto::with(['galery'])->withCount(['galery'])->getParent()->orderBy('id', 'ASC')->paginate(9)->get();
+       return view('fotostudio.kategorifoto', compact('kategori','gallery'));
     }
 
     /**

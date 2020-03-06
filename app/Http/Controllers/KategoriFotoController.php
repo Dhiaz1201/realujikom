@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KategoriFoto;
 use Str;
+use Alert;
 
 class KategoriFotoController extends Controller
 {
@@ -42,6 +43,7 @@ class KategoriFotoController extends Controller
         $kategorifoto->kategori_foto = $request->kategori_foto;
         $kategorifoto->slug = Str::slug($request->kategori_foto, '-');
         $kategorifoto->save();
+         toast('Success Toast','success');
         return redirect()->route('kategorifoto.index');
     }
 
@@ -76,7 +78,12 @@ class KategoriFotoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategorifoto = KategoriFoto::findOrFail($id);
+        $kategorifoto->kategori_foto = $request->kategori_foto;
+        $kategorifoto->slug = Str::slug($request->kategori_foto, '-');
+        $kategorifoto->save();
+         toast('Success Change','success');
+        return redirect()->route('kategorifoto.index'); 
     }
 
     /**
@@ -90,6 +97,7 @@ class KategoriFotoController extends Controller
         $kategorifoto = KategoriFoto::findOrFail($id);
         $old = $kategorifoto->kategori_foto;
         $kategorifoto->delete();
+        alert()->success('Success Delete');
        return redirect()->route('kategorifoto.index');
     }
 }

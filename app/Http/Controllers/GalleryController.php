@@ -52,6 +52,7 @@ class GalleryController extends Controller
             $gallery->foto_galery = $filename;
         }
             $gallery->save();
+            toast('Success Toast','success');
            
            
             return redirect()->route('gallery.index');
@@ -76,7 +77,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gallery = Galery::findOrFail($id);
+        $kategorifoto = KategoriFoto::all();
     }
 
     /**
@@ -88,7 +90,20 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $gallery = Galery::findOrFail($id);
+            $gallery->kategori_foto_id = $request->kategori_foto;
+          if ($request->hasFile('foto_galery')) {
+            $file = $request->file('foto_galery');
+            $destinationPath = public_path() . '/assets/img/galery/';
+            $filename = '_' . $file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+            $gallery->foto_galery = $filename;
+        }
+            $gallery->save();
+            toast('Success Change','success');
+           
+           
+            return redirect()->route('gallery.index');
     }
 
     /**
@@ -108,6 +123,7 @@ class GalleryController extends Controller
             } catch (FileNotFoundException $e) { }
         }
         $gallery->delete();
+           alert()->success('Success Delete');
         return redirect()->route('gallery.index');
     }
 }

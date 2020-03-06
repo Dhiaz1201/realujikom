@@ -1,5 +1,20 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+.btncolor{
+   background-color: #f44336;
+    border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button3 {background-color: #f44336;}
+</style>
 <div class="product-status mg-b-15">
             <div class="container-fluid">
                 <div class="row">
@@ -24,18 +39,20 @@
                                     <td><img src="{{ asset('assets/img/galery/'.$data->foto_galery) }}" alt="" height="500px" width="500px"></td>
                                     <td>{{ $data->kategorifoto->kategori_foto }}</td>
                                            <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ route('gallery.edit', $data->id) }}"></button>
+                                            <button data-toggle="modal" data-target="#PrimaryModalhdbgcl-{{$data->id}}" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href=""></button>
                                             </td>
                                             <td>
-                                          <form action="{{ route('gallery.destroy', $data->id) }}" method="post">
+                                          {{-- <form action="{{ route('gallery.destroy', $data->id) }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                 <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </form>
+                                                <input type="hidden" name="_method" value="DELETE"> --}}
+                                              <button data-toggle="modal" data-target="#DangerModalalert" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            {{-- </form> --}}
                                         </td>
                                     </tr>
+                                    @include('backend.gallery.edit')
                                       @endforeach
                                 </table>
+                                @include('sweetalert::alert')
                             </div>
                         </div>
                     </div>
@@ -86,4 +103,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        @foreach ($gallery as $data )
+                              <div id="DangerModalalert" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-close-area modal-close-df">
+                                        <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="educate-icon educate-danger modal-check-pro information-icon-pro"></span>
+                                        <h2>Danger!</h2>
+                                        <p>ANDA YAKIN INGIN MENGHAPUS DATA INI?!</p>
+                                    </div>
+                                    <div class="modal-footer danger-md">
+                                          <form action="{{ route('gallery.destroy', $data->id) }}" method="post"> 
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="button3 btncolor">
+                                                                Hapus
+                                                                </button>
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        @endforeach              
 @endsection

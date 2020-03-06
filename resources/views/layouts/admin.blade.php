@@ -1649,6 +1649,7 @@
     <!-- tawk chat JS
 		============================================ -->
     <script src="/admin/assets/js/tawk-chat.js"></script>
+    @stack('js')
 </body>
 
 </html>

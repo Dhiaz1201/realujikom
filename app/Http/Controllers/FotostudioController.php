@@ -59,6 +59,7 @@ class FotostudioController extends Controller
             $data[] =$filename;
             $fotostudio->foto =json_encode( $data);
             $fotostudio->save();
+            toast('Success Toast','success');
            }
     //   $photos = $request->file('foto');
  
@@ -97,10 +98,6 @@ class FotostudioController extends Controller
         // // $form = new Form();
         // $fotostudio->foto=json_encode($data);
         // $fotostudio->save();
-         Session::flash("flash_notification", [
-            "level" => "danger",
-            "message" => "Berhasil menghapus data!"
-        ]);
         return redirect('/');
     }
 
@@ -165,10 +162,7 @@ class FotostudioController extends Controller
         }
 
         $fotostudio->delete();
-        Session::flash("flash_notification", [
-            "level" => "danger",
-            "message" => "Berhasil menghapus data!"
-        ]);
+        alert()->success('Success Delete');
         return redirect()->route('fotostudio.index');
     }
 }

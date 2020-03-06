@@ -2,6 +2,15 @@
 label input[type="file"]{
 display:none;
 }
+.round1 {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 .button {
   background-color: #FE980F; /* Green */
   border: none;
@@ -164,21 +173,23 @@ display:none;
 		<div class="form-row">
 		  <div class="col">
 	  <label>Alamat</label>
-   <textarea id="" name="alamat" class="form-control" name="" rows="10" cols="50"  placeholder="Alamat..."></textarea>
+   <textarea id="" name="alamat" class="form-control" name="" rows="10" cols="50"  placeholder="Alamat..." required></textarea>
     </div>  
      <div class="col">
 	   <label>Ekstra</label>
-        <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..."></textarea>
+        <textarea id="editor1" name="ekstra" class="form-control" name="konten" rows="10" cols="50"  placeholder="Extra..." required></textarea>
     </div>
   </div>
-	<div id = "dvPreview">
+	<div class ="round1">
+	<div id = "dvPreview"></div>
 	</div>
-<button type="submit" class="fa fa-save button2 cetak-topright simpan btn-primary"> Simpan</button>
+<button type="submit" class="fa fa-save button2 cetak-topright  btn-primary"> Simpan</button>
 	</div>
 </div>
   <br>
   <br>
     </from>
+		@include('sweetalert::alert')
 </div>
  
 {{-- <div="container"> --}}
