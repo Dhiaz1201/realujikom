@@ -45,7 +45,7 @@
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="{{url('/')}}" class="color-text">Home</a></li>
-					<li class="{{url('gallery')}}"><a href="gallery.html">Gallery</a></li>
+				<li><a href="{{url('gallery')}}">Gallery</a></li>
 					<li><a href="{{url('about')}}">About</a></li>
 					<li><a href="{{url('contact')}}">Contact</a></li>
 				</ul>
@@ -65,7 +65,7 @@
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
 		<nav class="navbar navbar-expand-lg navbar-light bg-navbar">
-  <a class="navbar-brand" style="color:white" href="#">Navbar</a>
+  <a class="navbar-brand" style="color:white" href="#">HWR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

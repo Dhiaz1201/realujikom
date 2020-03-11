@@ -1,3 +1,11 @@
+<style>
+.bg-navbar{
+	background-color: #242423;
+}
+.color-text{
+	color:white;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,11 +43,10 @@
 			<h1 id="colorlib-logo"><a href="index.html"><span class="flaticon-camera"></span>Capture</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li class="colorlib-active"><a href="gallery.html">Gallery</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="{{url('/')}}" class="color-text">Home</a></li>
+				<li><a href="{{url('gallery')}}">Gallery</a></li>
+					<li><a href="{{url('about')}}">About</a></li>
+					<li><a href="{{url('contact')}}">Contact</a></li>
 				</ul>
 			</nav>
 
@@ -56,27 +63,25 @@
 			</div>
 		</aside> <!-- END COLORLIB-ASIDE -->
 		<div id="colorlib-main">
-			<section class="ftco-section bg-light ftco-bread">
 			<nav class="navbar navbar-expand-lg navbar-light bg-navbar">
-  <a class="navbar-brand" style="color:white" href="#">Navbar</a>
+  <a class="navbar-brand" style="color:white" href="#">HWR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-			{{-- @foreach ($kategori as $a )
+			@foreach ($kategori as $a )
 					 <li class="nav-item active">
 							<a class="nav-link" style="color:white" href="{{route('kategorifoto', $a->slug)}}">{{$a->kategori_foto}}</a>
 						</li>
-			@endforeach --}}
+			@endforeach
     </ul>
   </div>
 </nav>
-			</section>
 			<section class="ftco-section-2">
 				<div class="photograhy">
 					<div class="row no-gutters">
-          @foreach ($kategori->galery as $data )
+          @foreach ($gallery as $data )
             <div class="col-md-4 ftco-animate">
 							<a href="images/image_1.jpg" >
 							<img class="photography-entry img image-popup d-flex justify-content-center align-items-center" src="{{ asset('assets/img/galery/'.$data->foto_galery) }}"></img>

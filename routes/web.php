@@ -51,5 +51,5 @@ Route::get('/struk', 'StrukController@index');
 
 Route::group(['prefix'=>'/'], function(){
     Route::get('/gallery','FrontgalleryController@index');
-    Route::get('/gallery/kategorifoto/{kategori_foto}', 'FrontgalleryController@kategorifoto')->name('kategorifoto');
+    Route::get('/gallery/kategorifoto/{kategori}', 'FrontgalleryController@kategorifoto')->name('kategorifoto');
 });
