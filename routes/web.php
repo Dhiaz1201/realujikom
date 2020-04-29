@@ -47,7 +47,8 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth']], function () {
   Route::resource('gallery', 'GalleryController');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/struk', 'StrukController@index');
+Route::get('/struk/{id}', 'StrukController@index');
+Route::get('/laporan/{id}', 'StrukController@laporan');
 
 Route::group(['prefix'=>'/'], function(){
     Route::get('/gallery','FrontgalleryController@index');

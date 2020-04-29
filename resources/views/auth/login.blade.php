@@ -15,7 +15,7 @@
   <body>
  <div class="kotak_login">
  <div class="image-logo">
-		<img src="frontend/assets/images/home/logo.png" alt="" />
+		<img src="admin/assets/images/logo.png" style="width:100%;">
  </div>
 		<form method="POST" action="{{ route('login') }}">
                         @csrf

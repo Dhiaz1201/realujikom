@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
 <style>
+.ahref{
+color:black;
+ }
 .btncolor{
    background-color: #f44336;
     border: none;
@@ -53,15 +56,18 @@
                                  
                                          <td>
                                          <button  data-toggle="modal" data-target=".bd-example-modal-lg-{{ $data->id }}" title="Image"  id="edit-data-{{ $data->id}}" data-id="{{$data->id}}" class="pd-setting-ed"><i class="fa  fa-picture-o" aria-hidden="true"></i></button>
-                                         {{-- <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed" data-toggle="modal" data-target="#PrimaryModalhdbgcl"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> --}}
-                                            {{-- <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ route('fotostudio.show', $data->id) }}"></button> --}}
-                                            </td>
-                                            <td>
-                                          <form action="{{ route('fotostudio.destroy', $data->id) }}" method="post">
+                                         <a href="/struk/{{$data->id}}" class="ahref" target="_blank"><button title="Struck" class="pd-setting-ed"><i class="fa  fa-print" aria-hidden="true"></i></a>
+                                             <a href="/laporan/{{$data->id}}" class="ahref" target="_blank"><button title="Laporan" class="pd-setting-ed"><i class="fa fa-file" aria-hidden="true"></i></a>
+                                                 <form action="{{ route('fotostudio.destroy', $data->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                                  <button data-toggle="modal" data-target="#DangerModalalert" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </form>
+                                     
+                                         {{-- <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed" data-toggle="modal" data-target="#PrimaryModalhdbgcl"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> --}}
+                                            {{-- <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ route('fotostudio.show', $data->id) }}"></button> --}}
+                                            {{-- </td>
+                                            <td> --}}
                                         </td>
                                     </tr>
                                     @include('backend.fotostudio.show')

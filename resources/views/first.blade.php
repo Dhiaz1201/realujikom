@@ -139,7 +139,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="col-md-4 ftco-animate">
+						{{-- <div class="col-md-4 ftco-animate">
 							<a href="/welcome/assets/images/image_10.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url(welcome/assets/images/image_10.jpg);">
 								<div class="overlay"></div>
 								<div class="text text-center">
@@ -165,7 +165,7 @@
 									<span class="tag">Photography</span>
 								</div>
 							</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</section>

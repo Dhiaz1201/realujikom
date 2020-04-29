@@ -7,7 +7,7 @@
     <title>Struk Pembeli</title>
 </head>
 <body>
-<h3>struk Pelanggan</h3>
+<h3>Data Pelanggan</h3>
 <div class="container">
 <div>
 <label>name :{{ $fotostudio->nama }}</label>
@@ -27,6 +27,23 @@
 <div>
 <label>paket :{{ $fotostudio->paket }}</label>
 </div>
+  <div  id="daftar_foto">
+
+   </div>
 </div>
+  <script src="/admin/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script>
+let datafoto = {{ $fotostudio->foto}}
+let tagDiv = $("#daftar_foto");
+
+tagDiv.html(" ");
+$.each(datafoto,function(index, value) {
+ console.log(value)
+tagDiv.append(`
+  <img src="/assets/img/fotostudio/${val}">
+`)
+});
+     </script>
 </body>
 </html>
+ 
